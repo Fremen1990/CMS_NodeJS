@@ -1,0 +1,32 @@
+doctype html
+
+//- mixin method to normalize menu links in body 
+
+mixin item(title, url)   
+  li(class='list-item')
+     a(href=url class=path == url ? 'item active' : 'item')=title 
+
+
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    //- ul 
+    //-   li 
+    //-     a(href="/news")  News! 
+    //-   li
+    //-     a(href="/quiz")  Quiz 
+    //-   li
+    //-     a(href="/admin")  Admin
+
+    span=path
+nav
+    ul
+      +item('Main Page', '/') 
+      +item('News', '/news') 
+      +item('Quiz', '/quiz') 
+      +item('Admin', '/admin') 
+
+
+    block content

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1= title
+  if show
+    form(method ='post')
+      p What is your favourite programming language?? :) 
+      ul 
+        each item in data 
+          li 
+            label=item.title
+            input(type='radio' name='quiz' value=item._id)
+    
+      input(type='submit' value = 'Vote')
+      p To see results please vote
+
+  else 
+    h1 You've already voted 
+    p Scores 
+    ul 
+    each item in data 
+      li #{item.title} Votes: #{item.vote}  (#{Math.round(item.vote/sum*100)}%)
+
+    p   Votes: #{sum}
